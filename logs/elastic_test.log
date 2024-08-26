@@ -1,24 +1,697 @@
-2024-08-25T15:15:08.412+09:00  INFO 17136 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 17136 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
-2024-08-25T15:15:08.413+09:00  INFO 17136 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
-2024-08-25T15:15:08.595+09:00  INFO 17136 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-25T15:15:08.602+09:00  INFO 17136 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
-2024-08-25T15:15:08.759+09:00  INFO 17136 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
-2024-08-25T15:15:08.763+09:00  INFO 17136 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-08-25T15:15:08.764+09:00  INFO 17136 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
-2024-08-25T15:15:08.780+09:00  INFO 17136 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-08-25T15:15:08.781+09:00  INFO 17136 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 355 ms
-2024-08-25T15:15:08.795+09:00  INFO 17136 --- [elastic] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-08-25T15:15:08.923+09:00  INFO 17136 --- [elastic] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:~/elastic_test user=SA
-2024-08-25T15:15:08.923+09:00  INFO 17136 --- [elastic] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-08-25T15:15:08.927+09:00  INFO 17136 --- [elastic] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/elastic_test'
-2024-08-25T15:15:08.967+09:00  INFO 17136 --- [elastic] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-25T15:15:08.985+09:00  INFO 17136 --- [elastic] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-08-25T15:15:08.995+09:00  INFO 17136 --- [elastic] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-08-25T15:15:09.093+09:00  INFO 17136 --- [elastic] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-25T15:15:09.223+09:00  INFO 17136 --- [elastic] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-25T15:15:09.225+09:00  INFO 17136 --- [elastic] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-25T15:15:09.356+09:00  INFO 17136 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 12101 (http) with context path '/'
-2024-08-25T15:15:09.360+09:00  INFO 17136 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Started ElasticApplication in 1.083 seconds (process running for 1.499)
-2024-08-25T15:19:16.260+09:00  INFO 17136 --- [elastic] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-08-25T15:19:16.263+09:00  INFO 17136 --- [elastic] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-08-25T15:19:16.263+09:00  INFO 17136 --- [elastic] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-08-26T13:44:49.889+09:00  INFO 63027 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 63027 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T13:44:49.890+09:00  INFO 63027 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T13:44:50.094+09:00  INFO 63027 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-26T13:44:50.095+09:00  INFO 63027 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T13:44:50.116+09:00  INFO 63027 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T13:44:50.121+09:00  INFO 63027 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-26T13:44:50.121+09:00  INFO 63027 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-26T13:44:50.125+09:00  INFO 63027 --- [elastic] [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface kr.co.choi.elastic.elasticsearch.repository.MsdsRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2024-08-26T13:44:50.125+09:00  INFO 63027 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 JPA repository interfaces.
+2024-08-26T13:44:50.277+09:00  INFO 63027 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T13:44:50.287+09:00  INFO 63027 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T13:44:50.287+09:00  INFO 63027 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T13:44:50.304+09:00  INFO 63027 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T13:44:50.305+09:00  INFO 63027 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 402 ms
+2024-08-26T13:44:50.327+09:00  WARN 63027 --- [elastic] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration': Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+2024-08-26T13:44:50.328+09:00  INFO 63027 --- [elastic] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-08-26T13:44:50.333+09:00  INFO 63027 --- [elastic] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-26T13:44:50.339+09:00 ERROR 63027 --- [elastic] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2024-08-26T13:45:59.601+09:00  INFO 63411 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 63411 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T13:45:59.602+09:00  INFO 63411 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T13:45:59.773+09:00  INFO 63411 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-26T13:45:59.773+09:00  INFO 63411 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T13:45:59.787+09:00  INFO 63411 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T13:45:59.791+09:00  INFO 63411 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-26T13:45:59.791+09:00  INFO 63411 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-26T13:45:59.793+09:00  INFO 63411 --- [elastic] [main] .RepositoryConfigurationExtensionSupport : Spring Data JPA - Could not safely identify store assignment for repository candidate interface kr.co.choi.elastic.elasticsearch.repository.MsdsRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2024-08-26T13:45:59.794+09:00  INFO 63411 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+2024-08-26T13:45:59.923+09:00  INFO 63411 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T13:45:59.927+09:00  INFO 63411 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T13:45:59.927+09:00  INFO 63411 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T13:45:59.942+09:00  INFO 63411 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T13:45:59.942+09:00  INFO 63411 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 329 ms
+2024-08-26T13:45:59.962+09:00  WARN 63411 --- [elastic] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration': Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+2024-08-26T13:45:59.963+09:00  INFO 63411 --- [elastic] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-08-26T13:45:59.967+09:00  INFO 63411 --- [elastic] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-26T13:45:59.972+09:00 ERROR 63411 --- [elastic] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2024-08-26T13:47:51.216+09:00  INFO 64060 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 64060 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T13:47:51.218+09:00  INFO 64060 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T13:47:51.457+09:00  INFO 64060 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T13:47:51.473+09:00  INFO 64060 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T13:47:51.626+09:00  INFO 64060 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T13:47:51.632+09:00  INFO 64060 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T13:47:51.632+09:00  INFO 64060 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T13:47:51.657+09:00  INFO 64060 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T13:47:51.657+09:00  INFO 64060 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 428 ms
+2024-08-26T13:47:51.906+09:00 DEBUG 64060 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 404 Not Found]
+2024-08-26T13:47:51.975+09:00 DEBUG 64060 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [PUT http://localhost:9200/msds] returned [HTTP/1.1 406 Not Acceptable]
+2024-08-26T13:47:51.976+09:00  WARN 64060 --- [elastic] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'msdsController' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/controller/MsdsController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsService' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/service/MsdsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticsearchRepositoriesRegistrar.EnableElasticsearchRepositoriesConfiguration: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+2024-08-26T13:47:51.977+09:00  INFO 64060 --- [elastic] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-08-26T13:47:51.982+09:00  INFO 64060 --- [elastic] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-26T13:47:51.986+09:00 ERROR 64060 --- [elastic] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'msdsController' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/controller/MsdsController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsService' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/service/MsdsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticsearchRepositoriesRegistrar.EnableElasticsearchRepositoriesConfiguration: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.12.jar:6.1.12]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.12.jar:6.1.12]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.3.jar:3.3.3]
+	at kr.co.choi.elastic.ElasticApplication.main(ElasticApplication.java:10) ~[main/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'msdsService' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/service/MsdsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticsearchRepositoriesRegistrar.EnableElasticsearchRepositoriesConfiguration: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticsearchRepositoriesRegistrar.EnableElasticsearchRepositoriesConfiguration: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 33 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.lambda$instantiateClass$5(RepositoryFactorySupport.java:571) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at java.base/java.util.Optional.map(Optional.java:260) ~[na:na]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.instantiateClass(RepositoryFactorySupport.java:571) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getTargetRepositoryViaReflection(RepositoryFactorySupport.java:536) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.elasticsearch.repository.support.ElasticsearchRepositoryFactory.getTargetRepository(ElasticsearchRepositoryFactory.java:80) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:317) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:286) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.util.Lazy.get(Lazy.java:113) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:292) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.elasticsearch.repository.support.ElasticsearchRepositoryFactoryBean.afterPropertiesSet(ElasticsearchRepositoryFactoryBean.java:69) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 44 common frames omitted
+Caused by: org.springframework.dao.DataAccessResourceFailureException: method [PUT], host [http://localhost:9200], URI [/msds], status line [HTTP/1.1 406 Not Acceptable]
+{"error":"Content-Type header [application/vnd.elasticsearch+json; compatible-with=8] is not supported","status":406}
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateExceptionIfPossible(ElasticsearchExceptionTranslator.java:111) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateException(ElasticsearchExceptionTranslator.java:65) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ChildTemplate.execute(ChildTemplate.java:73) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.IndicesTemplate.doCreate(IndicesTemplate.java:145) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.IndicesTemplate.createWithMapping(IndicesTemplate.java:135) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository.createIndexAndMappingIfNeeded(SimpleElasticsearchRepository.java:94) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository.<init>(SimpleElasticsearchRepository.java:87) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:208) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 57 common frames omitted
+Caused by: java.lang.RuntimeException: method [PUT], host [http://localhost:9200], URI [/msds], status line [HTTP/1.1 406 Not Acceptable]
+{"error":"Content-Type header [application/vnd.elasticsearch+json; compatible-with=8] is not supported","status":406}
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateException(ElasticsearchExceptionTranslator.java:64) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	... 68 common frames omitted
+Caused by: org.elasticsearch.client.ResponseException: method [PUT], host [http://localhost:9200], URI [/msds], status line [HTTP/1.1 406 Not Acceptable]
+{"error":"Content-Type header [application/vnd.elasticsearch+json; compatible-with=8] is not supported","status":406}
+	at org.elasticsearch.client.RestClient.convertResponse(RestClient.java:351) ~[elasticsearch-rest-client-8.13.4.jar:8.13.4]
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:317) ~[elasticsearch-rest-client-8.13.4.jar:8.13.4]
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292) ~[elasticsearch-rest-client-8.13.4.jar:8.13.4]
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.elasticsearch.indices.ElasticsearchIndicesClient.create(ElasticsearchIndicesClient.java:277) ~[elasticsearch-java-8.13.4.jar:na]
+	at org.springframework.data.elasticsearch.client.elc.IndicesTemplate.lambda$doCreate$0(IndicesTemplate.java:145) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ChildTemplate.execute(ChildTemplate.java:71) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	... 67 common frames omitted
+
+2024-08-26T13:49:35.637+09:00  INFO 64616 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 64616 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T13:49:35.638+09:00  INFO 64616 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T13:49:35.805+09:00  INFO 64616 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T13:49:35.820+09:00  INFO 64616 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T13:49:35.935+09:00  INFO 64616 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T13:49:35.939+09:00  INFO 64616 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T13:49:35.939+09:00  INFO 64616 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T13:49:35.954+09:00  INFO 64616 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T13:49:35.954+09:00  INFO 64616 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 304 ms
+2024-08-26T13:49:36.132+09:00 DEBUG 64616 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 404 Not Found]
+2024-08-26T13:49:36.194+09:00 DEBUG 64616 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [PUT http://localhost:9200/msds] returned [HTTP/1.1 406 Not Acceptable]
+2024-08-26T13:49:36.195+09:00  WARN 64616 --- [elastic] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'msdsController' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/controller/MsdsController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsService' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/service/MsdsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticsearchRepositoriesRegistrar.EnableElasticsearchRepositoriesConfiguration: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+2024-08-26T13:49:36.196+09:00  INFO 64616 --- [elastic] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-08-26T13:49:36.201+09:00  INFO 64616 --- [elastic] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-26T13:49:36.205+09:00 ERROR 64616 --- [elastic] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'msdsController' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/controller/MsdsController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsService' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/service/MsdsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticsearchRepositoriesRegistrar.EnableElasticsearchRepositoriesConfiguration: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.12.jar:6.1.12]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.12.jar:6.1.12]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.3.jar:3.3.3]
+	at kr.co.choi.elastic.ElasticApplication.main(ElasticApplication.java:10) ~[main/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'msdsService' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/service/MsdsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticsearchRepositoriesRegistrar.EnableElasticsearchRepositoriesConfiguration: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticsearchRepositoriesRegistrar.EnableElasticsearchRepositoriesConfiguration: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 33 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.lambda$instantiateClass$5(RepositoryFactorySupport.java:571) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at java.base/java.util.Optional.map(Optional.java:260) ~[na:na]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.instantiateClass(RepositoryFactorySupport.java:571) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getTargetRepositoryViaReflection(RepositoryFactorySupport.java:536) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.elasticsearch.repository.support.ElasticsearchRepositoryFactory.getTargetRepository(ElasticsearchRepositoryFactory.java:80) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:317) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:286) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.util.Lazy.get(Lazy.java:113) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:292) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.elasticsearch.repository.support.ElasticsearchRepositoryFactoryBean.afterPropertiesSet(ElasticsearchRepositoryFactoryBean.java:69) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 44 common frames omitted
+Caused by: org.springframework.dao.DataAccessResourceFailureException: method [PUT], host [http://localhost:9200], URI [/msds], status line [HTTP/1.1 406 Not Acceptable]
+{"error":"Content-Type header [application/vnd.elasticsearch+json; compatible-with=8] is not supported","status":406}
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateExceptionIfPossible(ElasticsearchExceptionTranslator.java:111) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateException(ElasticsearchExceptionTranslator.java:65) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ChildTemplate.execute(ChildTemplate.java:73) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.IndicesTemplate.doCreate(IndicesTemplate.java:145) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.IndicesTemplate.createWithMapping(IndicesTemplate.java:135) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository.createIndexAndMappingIfNeeded(SimpleElasticsearchRepository.java:94) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository.<init>(SimpleElasticsearchRepository.java:87) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:208) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 57 common frames omitted
+Caused by: java.lang.RuntimeException: method [PUT], host [http://localhost:9200], URI [/msds], status line [HTTP/1.1 406 Not Acceptable]
+{"error":"Content-Type header [application/vnd.elasticsearch+json; compatible-with=8] is not supported","status":406}
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateException(ElasticsearchExceptionTranslator.java:64) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	... 68 common frames omitted
+Caused by: org.elasticsearch.client.ResponseException: method [PUT], host [http://localhost:9200], URI [/msds], status line [HTTP/1.1 406 Not Acceptable]
+{"error":"Content-Type header [application/vnd.elasticsearch+json; compatible-with=8] is not supported","status":406}
+	at org.elasticsearch.client.RestClient.convertResponse(RestClient.java:351) ~[elasticsearch-rest-client-8.13.4.jar:8.13.4]
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:317) ~[elasticsearch-rest-client-8.13.4.jar:8.13.4]
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292) ~[elasticsearch-rest-client-8.13.4.jar:8.13.4]
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.elasticsearch.indices.ElasticsearchIndicesClient.create(ElasticsearchIndicesClient.java:277) ~[elasticsearch-java-8.13.4.jar:na]
+	at org.springframework.data.elasticsearch.client.elc.IndicesTemplate.lambda$doCreate$0(IndicesTemplate.java:145) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ChildTemplate.execute(ChildTemplate.java:71) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	... 67 common frames omitted
+
+2024-08-26T13:49:51.605+09:00  INFO 64713 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 64713 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T13:49:51.606+09:00  INFO 64713 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T13:49:51.732+09:00  INFO 64713 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T13:49:51.743+09:00  INFO 64713 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T13:49:51.924+09:00  INFO 64713 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T13:49:51.929+09:00  INFO 64713 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T13:49:51.930+09:00  INFO 64713 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T13:49:51.948+09:00  INFO 64713 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T13:49:51.949+09:00  INFO 64713 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 328 ms
+2024-08-26T13:49:52.126+09:00 DEBUG 64713 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 404 Not Found]
+2024-08-26T13:49:52.193+09:00 DEBUG 64713 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [PUT http://localhost:9200/msds] returned [HTTP/1.1 406 Not Acceptable]
+2024-08-26T13:49:52.194+09:00  WARN 64713 --- [elastic] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'msdsController' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/controller/MsdsController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsService' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/service/MsdsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticApplication: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+2024-08-26T13:49:52.196+09:00  INFO 64713 --- [elastic] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-08-26T13:49:52.201+09:00  INFO 64713 --- [elastic] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-26T13:49:52.207+09:00 ERROR 64713 --- [elastic] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'msdsController' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/controller/MsdsController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsService' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/service/MsdsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticApplication: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.12.jar:6.1.12]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.12.jar:6.1.12]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.3.jar:3.3.3]
+	at kr.co.choi.elastic.ElasticApplication.main(ElasticApplication.java:12) ~[main/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'msdsService' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/service/MsdsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticApplication: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticApplication: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 33 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.lambda$instantiateClass$5(RepositoryFactorySupport.java:571) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at java.base/java.util.Optional.map(Optional.java:260) ~[na:na]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.instantiateClass(RepositoryFactorySupport.java:571) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getTargetRepositoryViaReflection(RepositoryFactorySupport.java:536) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.elasticsearch.repository.support.ElasticsearchRepositoryFactory.getTargetRepository(ElasticsearchRepositoryFactory.java:80) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:317) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:286) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.util.Lazy.get(Lazy.java:113) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:292) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.elasticsearch.repository.support.ElasticsearchRepositoryFactoryBean.afterPropertiesSet(ElasticsearchRepositoryFactoryBean.java:69) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 44 common frames omitted
+Caused by: org.springframework.dao.DataAccessResourceFailureException: method [PUT], host [http://localhost:9200], URI [/msds], status line [HTTP/1.1 406 Not Acceptable]
+{"error":"Content-Type header [application/vnd.elasticsearch+json; compatible-with=8] is not supported","status":406}
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateExceptionIfPossible(ElasticsearchExceptionTranslator.java:111) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateException(ElasticsearchExceptionTranslator.java:65) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ChildTemplate.execute(ChildTemplate.java:73) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.IndicesTemplate.doCreate(IndicesTemplate.java:145) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.IndicesTemplate.createWithMapping(IndicesTemplate.java:135) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository.createIndexAndMappingIfNeeded(SimpleElasticsearchRepository.java:94) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository.<init>(SimpleElasticsearchRepository.java:87) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:208) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 57 common frames omitted
+Caused by: java.lang.RuntimeException: method [PUT], host [http://localhost:9200], URI [/msds], status line [HTTP/1.1 406 Not Acceptable]
+{"error":"Content-Type header [application/vnd.elasticsearch+json; compatible-with=8] is not supported","status":406}
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateException(ElasticsearchExceptionTranslator.java:64) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	... 68 common frames omitted
+Caused by: org.elasticsearch.client.ResponseException: method [PUT], host [http://localhost:9200], URI [/msds], status line [HTTP/1.1 406 Not Acceptable]
+{"error":"Content-Type header [application/vnd.elasticsearch+json; compatible-with=8] is not supported","status":406}
+	at org.elasticsearch.client.RestClient.convertResponse(RestClient.java:351) ~[elasticsearch-rest-client-8.13.4.jar:8.13.4]
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:317) ~[elasticsearch-rest-client-8.13.4.jar:8.13.4]
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292) ~[elasticsearch-rest-client-8.13.4.jar:8.13.4]
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.elasticsearch.indices.ElasticsearchIndicesClient.create(ElasticsearchIndicesClient.java:277) ~[elasticsearch-java-8.13.4.jar:na]
+	at org.springframework.data.elasticsearch.client.elc.IndicesTemplate.lambda$doCreate$0(IndicesTemplate.java:145) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ChildTemplate.execute(ChildTemplate.java:71) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	... 67 common frames omitted
+
+2024-08-26T14:34:53.748+09:00  INFO 88578 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 88578 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T14:34:53.749+09:00  INFO 88578 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T14:34:53.874+09:00  INFO 88578 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T14:34:53.886+09:00  INFO 88578 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T14:34:54.058+09:00  INFO 88578 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T14:34:54.063+09:00  INFO 88578 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T14:34:54.063+09:00  INFO 88578 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T14:34:54.079+09:00  INFO 88578 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T14:34:54.079+09:00  INFO 88578 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 315 ms
+2024-08-26T14:34:54.265+09:00 DEBUG 88578 --- [elastic] [elasticsearch-rest-client-0-thread-2] sistentCredentialsAuthenticationStrategy : Authentication schemes in the order of preference: [Negotiate, Kerberos, NTLM, CredSSP, Digest, Basic]
+2024-08-26T14:34:54.265+09:00 DEBUG 88578 --- [elastic] [elasticsearch-rest-client-0-thread-2] sistentCredentialsAuthenticationStrategy : Challenge for Negotiate authentication scheme not available
+2024-08-26T14:34:54.265+09:00 DEBUG 88578 --- [elastic] [elasticsearch-rest-client-0-thread-2] sistentCredentialsAuthenticationStrategy : Challenge for Kerberos authentication scheme not available
+2024-08-26T14:34:54.265+09:00 DEBUG 88578 --- [elastic] [elasticsearch-rest-client-0-thread-2] sistentCredentialsAuthenticationStrategy : Challenge for NTLM authentication scheme not available
+2024-08-26T14:34:54.265+09:00 DEBUG 88578 --- [elastic] [elasticsearch-rest-client-0-thread-2] sistentCredentialsAuthenticationStrategy : Challenge for CredSSP authentication scheme not available
+2024-08-26T14:34:54.265+09:00 DEBUG 88578 --- [elastic] [elasticsearch-rest-client-0-thread-2] sistentCredentialsAuthenticationStrategy : Challenge for Digest authentication scheme not available
+2024-08-26T14:34:54.269+09:00 DEBUG 88578 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 401 Unauthorized]
+2024-08-26T14:34:54.339+09:00 DEBUG 88578 --- [elastic] [elasticsearch-rest-client-0-thread-2] sistentCredentialsAuthenticationStrategy : Authentication schemes in the order of preference: [Negotiate, Kerberos, NTLM, CredSSP, Digest, Basic]
+2024-08-26T14:34:54.340+09:00 DEBUG 88578 --- [elastic] [elasticsearch-rest-client-0-thread-2] sistentCredentialsAuthenticationStrategy : Challenge for Negotiate authentication scheme not available
+2024-08-26T14:34:54.340+09:00 DEBUG 88578 --- [elastic] [elasticsearch-rest-client-0-thread-2] sistentCredentialsAuthenticationStrategy : Challenge for Kerberos authentication scheme not available
+2024-08-26T14:34:54.340+09:00 DEBUG 88578 --- [elastic] [elasticsearch-rest-client-0-thread-2] sistentCredentialsAuthenticationStrategy : Challenge for NTLM authentication scheme not available
+2024-08-26T14:34:54.340+09:00 DEBUG 88578 --- [elastic] [elasticsearch-rest-client-0-thread-2] sistentCredentialsAuthenticationStrategy : Challenge for CredSSP authentication scheme not available
+2024-08-26T14:34:54.340+09:00 DEBUG 88578 --- [elastic] [elasticsearch-rest-client-0-thread-2] sistentCredentialsAuthenticationStrategy : Challenge for Digest authentication scheme not available
+2024-08-26T14:34:54.340+09:00 DEBUG 88578 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [PUT http://localhost:9200/msds] returned [HTTP/1.1 401 Unauthorized]
+2024-08-26T14:34:54.345+09:00  WARN 88578 --- [elastic] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'msdsController' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/controller/MsdsController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsService' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/service/MsdsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticApplication: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+2024-08-26T14:34:54.347+09:00  INFO 88578 --- [elastic] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-08-26T14:34:54.352+09:00  INFO 88578 --- [elastic] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-26T14:34:54.356+09:00 ERROR 88578 --- [elastic] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'msdsController' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/controller/MsdsController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsService' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/service/MsdsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticApplication: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.12.jar:6.1.12]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.12.jar:6.1.12]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.3.jar:3.3.3]
+	at kr.co.choi.elastic.ElasticApplication.main(ElasticApplication.java:12) ~[main/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'msdsService' defined in file [/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main/kr/co/choi/elastic/elasticsearch/service/MsdsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticApplication: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'msdsRepository' defined in kr.co.choi.elastic.elasticsearch.repository.MsdsRepository defined in @EnableElasticsearchRepositories declared on ElasticApplication: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 33 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.lambda$instantiateClass$5(RepositoryFactorySupport.java:571) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at java.base/java.util.Optional.map(Optional.java:260) ~[na:na]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.instantiateClass(RepositoryFactorySupport.java:571) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getTargetRepositoryViaReflection(RepositoryFactorySupport.java:536) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.elasticsearch.repository.support.ElasticsearchRepositoryFactory.getTargetRepository(ElasticsearchRepositoryFactory.java:80) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:317) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:286) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.util.Lazy.get(Lazy.java:113) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:292) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.elasticsearch.repository.support.ElasticsearchRepositoryFactoryBean.afterPropertiesSet(ElasticsearchRepositoryFactoryBean.java:69) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 44 common frames omitted
+Caused by: org.springframework.data.elasticsearch.UncategorizedElasticsearchException: [es/indices.create] failed: [security_exception] missing authentication credentials for REST request [/msds]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateExceptionIfPossible(ElasticsearchExceptionTranslator.java:106) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchExceptionTranslator.translateException(ElasticsearchExceptionTranslator.java:65) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ChildTemplate.execute(ChildTemplate.java:73) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.IndicesTemplate.doCreate(IndicesTemplate.java:145) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.IndicesTemplate.createWithMapping(IndicesTemplate.java:135) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository.createIndexAndMappingIfNeeded(SimpleElasticsearchRepository.java:94) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository.<init>(SimpleElasticsearchRepository.java:87) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:208) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 57 common frames omitted
+Caused by: co.elastic.clients.elasticsearch._types.ElasticsearchException: [es/indices.create] failed: [security_exception] missing authentication credentials for REST request [/msds]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.getApiResponse(ElasticsearchTransportBase.java:345) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:147) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.elasticsearch.indices.ElasticsearchIndicesClient.create(ElasticsearchIndicesClient.java:277) ~[elasticsearch-java-8.13.4.jar:na]
+	at org.springframework.data.elasticsearch.client.elc.IndicesTemplate.lambda$doCreate$0(IndicesTemplate.java:145) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ChildTemplate.execute(ChildTemplate.java:71) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	... 67 common frames omitted
+
+2024-08-26T14:35:21.674+09:00  INFO 88815 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 88815 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T14:35:21.675+09:00  INFO 88815 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T14:35:21.817+09:00  INFO 88815 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T14:35:21.883+09:00  INFO 88815 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T14:35:22.103+09:00  INFO 88815 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T14:35:22.108+09:00  INFO 88815 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T14:35:22.108+09:00  INFO 88815 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T14:35:22.126+09:00  INFO 88815 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T14:35:22.126+09:00  INFO 88815 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 436 ms
+2024-08-26T14:35:22.420+09:00 DEBUG 88815 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 404 Not Found]
+2024-08-26T14:35:22.668+09:00 DEBUG 88815 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [PUT http://localhost:9200/msds] returned [HTTP/1.1 200 OK]
+2024-08-26T14:35:22.778+09:00  INFO 88815 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 12101 (http) with context path '/'
+2024-08-26T14:35:22.782+09:00  INFO 88815 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Started ElasticApplication in 1.26 seconds (process running for 1.547)
+2024-08-26T14:38:25.569+09:00  INFO 88815 --- [elastic] [http-nio-12101-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-26T14:38:25.570+09:00  INFO 88815 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-26T14:38:25.570+09:00  INFO 88815 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-08-26T14:38:25.711+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_doc?refresh=false] returned [HTTP/1.1 201 Created]
+2024-08-26T14:38:25.735+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T14:38:49.199+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_doc?refresh=false] returned [HTTP/1.1 201 Created]
+2024-08-26T14:38:49.243+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T14:39:02.868+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-4] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_doc?refresh=false] returned [HTTP/1.1 201 Created]
+2024-08-26T14:39:02.907+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-4] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T14:39:13.190+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-5] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_doc?refresh=false] returned [HTTP/1.1 201 Created]
+2024-08-26T14:39:13.235+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-5] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T14:40:46.922+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-8] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_doc?refresh=false] returned [HTTP/1.1 201 Created]
+2024-08-26T14:40:46.953+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-8] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T14:41:00.001+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-9] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_doc?refresh=false] returned [HTTP/1.1 201 Created]
+2024-08-26T14:41:00.049+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-9] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T14:41:12.348+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-10] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_doc?refresh=false] returned [HTTP/1.1 201 Created]
+2024-08-26T14:41:12.397+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-10] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T14:41:23.989+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-1] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_doc?refresh=false] returned [HTTP/1.1 201 Created]
+2024-08-26T14:41:24.015+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-1] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T14:41:33.905+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_doc?refresh=false] returned [HTTP/1.1 201 Created]
+2024-08-26T14:41:33.950+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T14:41:44.842+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_doc?refresh=false] returned [HTTP/1.1 201 Created]
+2024-08-26T14:41:44.894+09:00 DEBUG 88815 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T14:45:07.113+09:00  INFO 94039 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 94039 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T14:45:07.114+09:00  INFO 94039 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T14:45:07.239+09:00  INFO 94039 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T14:45:07.251+09:00  INFO 94039 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T14:45:07.437+09:00  INFO 94039 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T14:45:07.443+09:00  INFO 94039 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T14:45:07.443+09:00  INFO 94039 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T14:45:07.459+09:00  INFO 94039 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T14:45:07.459+09:00  INFO 94039 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 331 ms
+2024-08-26T14:45:07.655+09:00 DEBUG 94039 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 200 OK]
+2024-08-26T14:45:07.760+09:00  INFO 94039 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 12101 (http) with context path '/'
+2024-08-26T14:45:07.764+09:00  INFO 94039 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Started ElasticApplication in 0.792 seconds (process running for 0.991)
+2024-08-26T14:45:40.585+09:00  INFO 94039 --- [elastic] [http-nio-12101-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-26T14:45:40.586+09:00  INFO 94039 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-26T14:45:40.587+09:00  INFO 94039 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-08-26T14:45:40.667+09:00 DEBUG 94039 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T14:47:39.565+09:00 DEBUG 94039 --- [elastic] [http-nio-12101-exec-5] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T14:47:53.984+09:00 DEBUG 94039 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T14:58:32.232+09:00  INFO 1502 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 1502 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T14:58:32.233+09:00  INFO 1502 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T14:58:32.378+09:00  INFO 1502 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T14:58:32.392+09:00  INFO 1502 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T14:58:32.620+09:00  INFO 1502 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T14:58:32.625+09:00  INFO 1502 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T14:58:32.625+09:00  INFO 1502 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T14:58:32.644+09:00  INFO 1502 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T14:58:32.644+09:00  INFO 1502 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 394 ms
+2024-08-26T14:58:32.876+09:00 DEBUG 1502 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 200 OK]
+2024-08-26T14:58:32.996+09:00  INFO 1502 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 12101 (http) with context path '/'
+2024-08-26T14:58:33.000+09:00  INFO 1502 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Started ElasticApplication in 0.924 seconds (process running for 1.162)
+2024-08-26T14:59:12.446+09:00  INFO 1502 --- [elastic] [http-nio-12101-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-26T14:59:12.447+09:00  INFO 1502 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-26T14:59:12.447+09:00  INFO 1502 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-08-26T14:59:12.614+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T14:59:12.638+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T14:59:29.941+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T14:59:37.633+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-4] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:01:10.866+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-7] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T15:01:10.890+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-7] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T15:01:13.622+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-8] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:01:24.390+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-9] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:03:50.550+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T15:03:50.583+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T15:05:13.954+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-5] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T15:05:13.988+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-5] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T15:05:57.219+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T15:05:57.254+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T15:07:04.139+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-9] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T15:07:04.169+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-9] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T15:12:22.127+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:12:25.833+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:18:04.584+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T15:18:04.609+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T15:18:12.220+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-7] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:18:17.393+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-8] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:18:28.075+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-9] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:18:29.905+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-10] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:18:31.142+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-1] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:18:31.708+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:18:32.280+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:21:31.919+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T15:21:31.944+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T15:21:34.199+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-7] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:21:35.431+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-8] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:26:47.345+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-10] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T15:26:47.387+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-10] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T15:26:52.903+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:26:53.978+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:28:00.699+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T15:28:00.744+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T15:28:08.348+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-7] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:57:39.856+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-1] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T15:57:39.882+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-1] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T15:57:42.626+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-10] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T15:57:43.572+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T16:00:07.433+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-5] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T16:00:07.464+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-5] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T16:08:06.447+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-8] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T16:08:06.482+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-8] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T16:08:08.724+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-9] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T16:08:17.898+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-1] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T16:08:21.491+09:00 DEBUG 1502 --- [elastic] [http-nio-12101-exec-10] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T16:39:26.925+09:00  INFO 55399 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 55399 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T16:39:26.926+09:00  INFO 55399 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T16:39:27.053+09:00  INFO 55399 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T16:39:27.064+09:00  INFO 55399 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T16:39:27.243+09:00  INFO 55399 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T16:39:27.248+09:00  INFO 55399 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T16:39:27.248+09:00  INFO 55399 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T16:39:27.265+09:00  INFO 55399 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T16:39:27.265+09:00  INFO 55399 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 325 ms
+2024-08-26T16:39:27.451+09:00 DEBUG 55399 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 200 OK]
+2024-08-26T16:39:27.560+09:00  INFO 55399 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 12101 (http) with context path '/'
+2024-08-26T16:39:27.563+09:00  INFO 55399 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Started ElasticApplication in 0.777 seconds (process running for 0.959)
+2024-08-26T16:40:07.329+09:00  INFO 55399 --- [elastic] [http-nio-12101-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-26T16:40:07.330+09:00  INFO 55399 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-26T16:40:07.331+09:00  INFO 55399 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-08-26T16:40:07.473+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T16:40:07.518+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T16:40:13.389+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T16:41:39.143+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-5] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T16:41:44.079+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-7] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T16:42:11.039+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-8] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T16:44:53.787+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-1] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T16:45:05.314+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T16:45:19.629+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T16:45:32.137+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-4] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T16:45:50.092+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T16:47:40.983+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-8] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T16:47:54.079+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-9] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
