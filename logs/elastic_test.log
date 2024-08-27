@@ -695,3 +695,473 @@ Caused by: co.elastic.clients.elasticsearch._types.ElasticsearchException: [es/i
 2024-08-26T16:45:50.092+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
 2024-08-26T16:47:40.983+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-8] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
 2024-08-26T16:47:54.079+09:00 DEBUG 55399 --- [elastic] [http-nio-12101-exec-9] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T17:58:09.416+09:00  INFO 86942 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 86942 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T17:58:09.417+09:00  INFO 86942 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T17:58:09.547+09:00  INFO 86942 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T17:58:09.558+09:00  INFO 86942 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T17:58:09.733+09:00  INFO 86942 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T17:58:09.738+09:00  INFO 86942 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T17:58:09.738+09:00  INFO 86942 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T17:58:09.755+09:00  INFO 86942 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T17:58:09.756+09:00  INFO 86942 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 323 ms
+2024-08-26T17:58:09.950+09:00 DEBUG 86942 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 200 OK]
+2024-08-26T17:58:10.055+09:00  INFO 86942 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 12101 (http) with context path '/'
+2024-08-26T17:58:10.059+09:00  INFO 86942 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Started ElasticApplication in 0.794 seconds (process running for 0.986)
+2024-08-26T17:58:17.296+09:00  INFO 86942 --- [elastic] [http-nio-12101-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-26T17:58:17.297+09:00  INFO 86942 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-26T17:58:17.298+09:00  INFO 86942 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-08-26T17:58:17.359+09:00 DEBUG 86942 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T17:58:21.924+09:00 DEBUG 86942 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 400 Bad Request]
+2024-08-26T17:58:21.935+09:00 ERROR 86942 --- [elastic] [http-nio-12101-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.data.elasticsearch.UncategorizedElasticsearchException: [es/search] failed: [x_content_parse_exception] [1:66] [bool] failed to parse field [should]] with root cause
+
+co.elastic.clients.elasticsearch._types.ElasticsearchException: [es/search] failed: [x_content_parse_exception] [1:66] [bool] failed to parse field [should]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.getApiResponse(ElasticsearchTransportBase.java:345) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:147) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.search(ElasticsearchClient.java:1923) ~[elasticsearch-java-8.13.4.jar:na]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.lambda$doSearch$15(ElasticsearchTemplate.java:363) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.execute(ElasticsearchTemplate.java:683) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.doSearch(ElasticsearchTemplate.java:363) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.search(ElasticsearchTemplate.java:356) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.repository.query.AbstractElasticsearchRepositoryQuery.execute(AbstractElasticsearchRepositoryQuery.java:123) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:169) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.12.jar:6.1.12]
+	at jdk.proxy2/jdk.proxy2.$Proxy69.findByNameSimilar(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.12.jar:6.1.12]
+	at jdk.proxy2/jdk.proxy2.$Proxy69.findByNameSimilar(Unknown Source) ~[na:na]
+	at kr.co.choi.elastic.elasticsearch.service.MsdsService.findByNameSimilar(MsdsService.java:58) ~[main/:na]
+	at kr.co.choi.elastic.elasticsearch.controller.MsdsController.searchByName(MsdsController.java:42) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-08-26T18:00:06.665+09:00 DEBUG 86942 --- [elastic] [http-nio-12101-exec-5] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T18:00:06.700+09:00 DEBUG 86942 --- [elastic] [http-nio-12101-exec-5] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T18:00:09.607+09:00 DEBUG 86942 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 400 Bad Request]
+2024-08-26T18:00:09.609+09:00 ERROR 86942 --- [elastic] [http-nio-12101-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.data.elasticsearch.UncategorizedElasticsearchException: [es/search] failed: [x_content_parse_exception] [1:66] [bool] failed to parse field [should]] with root cause
+
+co.elastic.clients.elasticsearch._types.ElasticsearchException: [es/search] failed: [x_content_parse_exception] [1:66] [bool] failed to parse field [should]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.getApiResponse(ElasticsearchTransportBase.java:345) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:147) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.search(ElasticsearchClient.java:1923) ~[elasticsearch-java-8.13.4.jar:na]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.lambda$doSearch$15(ElasticsearchTemplate.java:363) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.execute(ElasticsearchTemplate.java:683) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.doSearch(ElasticsearchTemplate.java:363) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.search(ElasticsearchTemplate.java:356) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.repository.query.AbstractElasticsearchRepositoryQuery.execute(AbstractElasticsearchRepositoryQuery.java:123) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:169) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.12.jar:6.1.12]
+	at jdk.proxy2/jdk.proxy2.$Proxy69.findByNameSimilar(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.12.jar:6.1.12]
+	at jdk.proxy2/jdk.proxy2.$Proxy69.findByNameSimilar(Unknown Source) ~[na:na]
+	at kr.co.choi.elastic.elasticsearch.service.MsdsService.findByNameSimilar(MsdsService.java:58) ~[main/:na]
+	at kr.co.choi.elastic.elasticsearch.controller.MsdsController.searchByName(MsdsController.java:42) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-08-26T18:00:31.150+09:00 DEBUG 86942 --- [elastic] [http-nio-12101-exec-8] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 400 Bad Request]
+2024-08-26T18:00:31.151+09:00 ERROR 86942 --- [elastic] [http-nio-12101-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.data.elasticsearch.UncategorizedElasticsearchException: [es/search] failed: [x_content_parse_exception] [1:66] [bool] failed to parse field [should]] with root cause
+
+co.elastic.clients.elasticsearch._types.ElasticsearchException: [es/search] failed: [x_content_parse_exception] [1:66] [bool] failed to parse field [should]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.getApiResponse(ElasticsearchTransportBase.java:345) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:147) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.search(ElasticsearchClient.java:1923) ~[elasticsearch-java-8.13.4.jar:na]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.lambda$doSearch$15(ElasticsearchTemplate.java:363) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.execute(ElasticsearchTemplate.java:683) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.doSearch(ElasticsearchTemplate.java:363) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.search(ElasticsearchTemplate.java:356) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.repository.query.AbstractElasticsearchRepositoryQuery.execute(AbstractElasticsearchRepositoryQuery.java:123) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:169) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.12.jar:6.1.12]
+	at jdk.proxy2/jdk.proxy2.$Proxy69.findByNameSimilar(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.12.jar:6.1.12]
+	at jdk.proxy2/jdk.proxy2.$Proxy69.findByNameSimilar(Unknown Source) ~[na:na]
+	at kr.co.choi.elastic.elasticsearch.service.MsdsService.findByNameSimilar(MsdsService.java:58) ~[main/:na]
+	at kr.co.choi.elastic.elasticsearch.controller.MsdsController.searchByName(MsdsController.java:42) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-08-26T18:01:27.986+09:00  INFO 88735 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 88735 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T18:01:27.987+09:00  INFO 88735 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T18:01:28.109+09:00  INFO 88735 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T18:01:28.120+09:00  INFO 88735 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T18:01:28.289+09:00  INFO 88735 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T18:01:28.294+09:00  INFO 88735 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T18:01:28.294+09:00  INFO 88735 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T18:01:28.309+09:00  INFO 88735 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T18:01:28.310+09:00  INFO 88735 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 309 ms
+2024-08-26T18:01:28.493+09:00 DEBUG 88735 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 200 OK]
+2024-08-26T18:01:28.604+09:00  INFO 88735 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 12101 (http) with context path '/'
+2024-08-26T18:01:28.608+09:00  INFO 88735 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Started ElasticApplication in 0.76 seconds (process running for 0.953)
+2024-08-26T18:01:54.895+09:00  INFO 88982 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 88982 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T18:01:54.896+09:00  INFO 88982 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T18:01:55.022+09:00  INFO 88982 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T18:01:55.033+09:00  INFO 88982 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T18:01:55.202+09:00  INFO 88982 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T18:01:55.208+09:00  INFO 88982 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T18:01:55.208+09:00  INFO 88982 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T18:01:55.225+09:00  INFO 88982 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T18:01:55.225+09:00  INFO 88982 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 315 ms
+2024-08-26T18:01:55.417+09:00 DEBUG 88982 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 200 OK]
+2024-08-26T18:01:55.523+09:00  INFO 88982 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 12101 (http) with context path '/'
+2024-08-26T18:01:55.527+09:00  INFO 88982 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Started ElasticApplication in 0.765 seconds (process running for 0.949)
+2024-08-26T18:02:00.360+09:00  INFO 88982 --- [elastic] [http-nio-12101-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-26T18:02:00.360+09:00  INFO 88982 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-26T18:02:00.361+09:00  INFO 88982 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-08-26T18:02:00.407+09:00 DEBUG 88982 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 400 Bad Request]
+2024-08-26T18:02:00.417+09:00 ERROR 88982 --- [elastic] [http-nio-12101-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.data.elasticsearch.UncategorizedElasticsearchException: [es/search] failed: [x_content_parse_exception] [1:66] [bool] failed to parse field [should]] with root cause
+
+co.elastic.clients.elasticsearch._types.ElasticsearchException: [es/search] failed: [x_content_parse_exception] [1:66] [bool] failed to parse field [should]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.getApiResponse(ElasticsearchTransportBase.java:345) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:147) ~[elasticsearch-java-8.13.4.jar:na]
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.search(ElasticsearchClient.java:1923) ~[elasticsearch-java-8.13.4.jar:na]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.lambda$doSearch$15(ElasticsearchTemplate.java:363) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.execute(ElasticsearchTemplate.java:683) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.doSearch(ElasticsearchTemplate.java:363) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate.search(ElasticsearchTemplate.java:356) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.elasticsearch.repository.query.AbstractElasticsearchRepositoryQuery.execute(AbstractElasticsearchRepositoryQuery.java:123) ~[spring-data-elasticsearch-5.3.3.jar:5.3.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:169) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148) ~[spring-data-commons-3.3.3.jar:3.3.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.12.jar:6.1.12]
+	at jdk.proxy2/jdk.proxy2.$Proxy69.findByNameSimilar(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.12.jar:6.1.12]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.12.jar:6.1.12]
+	at jdk.proxy2/jdk.proxy2.$Proxy69.findByNameSimilar(Unknown Source) ~[na:na]
+	at kr.co.choi.elastic.elasticsearch.service.MsdsService.findByNameSimilar(MsdsService.java:58) ~[main/:na]
+	at kr.co.choi.elastic.elasticsearch.controller.MsdsController.searchByName(MsdsController.java:42) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-08-26T18:04:42.259+09:00  INFO 90503 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 90503 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T18:04:42.260+09:00  INFO 90503 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T18:04:42.384+09:00  INFO 90503 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T18:04:42.395+09:00  INFO 90503 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T18:04:42.566+09:00  INFO 90503 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T18:04:42.571+09:00  INFO 90503 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T18:04:42.571+09:00  INFO 90503 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T18:04:42.586+09:00  INFO 90503 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T18:04:42.587+09:00  INFO 90503 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 314 ms
+2024-08-26T18:04:42.779+09:00 DEBUG 90503 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 200 OK]
+2024-08-26T18:04:42.883+09:00  INFO 90503 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 12101 (http) with context path '/'
+2024-08-26T18:04:42.887+09:00  INFO 90503 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Started ElasticApplication in 0.757 seconds (process running for 0.934)
+2024-08-26T18:04:51.638+09:00  INFO 90503 --- [elastic] [http-nio-12101-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-26T18:04:51.639+09:00  INFO 90503 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-26T18:04:51.639+09:00  INFO 90503 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-08-26T18:04:51.692+09:00 DEBUG 90503 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:04:57.160+09:00 DEBUG 90503 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:05:08.543+09:00 DEBUG 90503 --- [elastic] [http-nio-12101-exec-4] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:05:13.666+09:00 DEBUG 90503 --- [elastic] [http-nio-12101-exec-5] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:06:25.877+09:00 DEBUG 90503 --- [elastic] [http-nio-12101-exec-8] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:11:13.072+09:00 DEBUG 90503 --- [elastic] [http-nio-12101-exec-10] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T18:11:13.112+09:00 DEBUG 90503 --- [elastic] [http-nio-12101-exec-10] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T18:11:45.414+09:00  INFO 94286 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 94286 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T18:11:45.415+09:00  INFO 94286 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T18:11:45.536+09:00  INFO 94286 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T18:11:45.546+09:00  INFO 94286 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T18:11:45.729+09:00  INFO 94286 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T18:11:45.734+09:00  INFO 94286 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T18:11:45.734+09:00  INFO 94286 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T18:11:45.752+09:00  INFO 94286 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T18:11:45.752+09:00  INFO 94286 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 324 ms
+2024-08-26T18:11:45.948+09:00 DEBUG 94286 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 200 OK]
+2024-08-26T18:11:46.049+09:00  INFO 94286 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 12101 (http) with context path '/'
+2024-08-26T18:11:46.053+09:00  INFO 94286 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Started ElasticApplication in 0.768 seconds (process running for 0.941)
+2024-08-26T18:11:58.779+09:00  INFO 94286 --- [elastic] [http-nio-12101-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-26T18:11:58.780+09:00  INFO 94286 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-26T18:11:58.780+09:00  INFO 94286 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-08-26T18:11:58.830+09:00 DEBUG 94286 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:12:05.885+09:00 DEBUG 94286 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:16:30.207+09:00 DEBUG 94286 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:16:33.899+09:00 DEBUG 94286 --- [elastic] [http-nio-12101-exec-7] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:16:37.262+09:00 DEBUG 94286 --- [elastic] [http-nio-12101-exec-8] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:27:07.831+09:00  INFO 2771 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 2771 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T18:27:07.832+09:00  INFO 2771 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T18:27:07.958+09:00  INFO 2771 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T18:27:07.970+09:00  INFO 2771 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T18:27:08.155+09:00  INFO 2771 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T18:27:08.163+09:00  INFO 2771 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T18:27:08.164+09:00  INFO 2771 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T18:27:08.194+09:00  INFO 2771 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T18:27:08.194+09:00  INFO 2771 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 348 ms
+2024-08-26T18:27:08.395+09:00 DEBUG 2771 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 200 OK]
+2024-08-26T18:27:08.500+09:00  INFO 2771 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 12101 (http) with context path '/'
+2024-08-26T18:27:08.504+09:00  INFO 2771 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Started ElasticApplication in 0.801 seconds (process running for 0.977)
+2024-08-26T18:27:13.628+09:00  INFO 2771 --- [elastic] [http-nio-12101-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-26T18:27:13.628+09:00  INFO 2771 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-26T18:27:13.629+09:00  INFO 2771 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-08-26T18:27:13.750+09:00 DEBUG 2771 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T18:27:13.791+09:00 DEBUG 2771 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T18:27:16.231+09:00 DEBUG 2771 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:27:22.287+09:00 DEBUG 2771 --- [elastic] [http-nio-12101-exec-4] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:27:27.557+09:00 DEBUG 2771 --- [elastic] [http-nio-12101-exec-5] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:27:55.990+09:00 DEBUG 2771 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:30:08.726+09:00  INFO 4486 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Starting ElasticApplication using Java 17.0.10 with PID 4486 (/Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic/build/classes/java/main started by choibyungjae in /Users/choibyungjae/Desktop/project/0.study/27_elestic/spring_boot/elastic)
+2024-08-26T18:30:08.727+09:00  INFO 4486 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-08-26T18:30:08.847+09:00  INFO 4486 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-08-26T18:30:08.858+09:00  INFO 4486 --- [elastic] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 Elasticsearch repository interface.
+2024-08-26T18:30:09.032+09:00  INFO 4486 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 12101 (http)
+2024-08-26T18:30:09.037+09:00  INFO 4486 --- [elastic] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-26T18:30:09.037+09:00  INFO 4486 --- [elastic] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-08-26T18:30:09.053+09:00  INFO 4486 --- [elastic] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-26T18:30:09.054+09:00  INFO 4486 --- [elastic] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 312 ms
+2024-08-26T18:30:09.237+09:00 DEBUG 4486 --- [elastic] [main] org.elasticsearch.client.RestClient      : request [HEAD http://localhost:9200/msds] returned [HTTP/1.1 200 OK]
+2024-08-26T18:30:09.342+09:00  INFO 4486 --- [elastic] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 12101 (http) with context path '/'
+2024-08-26T18:30:09.346+09:00  INFO 4486 --- [elastic] [main] kr.co.choi.elastic.ElasticApplication    : Started ElasticApplication in 0.754 seconds (process running for 0.94)
+2024-08-26T18:30:16.092+09:00  INFO 4486 --- [elastic] [http-nio-12101-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-26T18:30:16.092+09:00  INFO 4486 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-26T18:30:16.093+09:00  INFO 4486 --- [elastic] [http-nio-12101-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-08-26T18:30:16.217+09:00 DEBUG 4486 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/_bulk?refresh=false] returned [HTTP/1.1 200 OK]
+2024-08-26T18:30:16.263+09:00 DEBUG 4486 --- [elastic] [http-nio-12101-exec-2] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_refresh] returned [HTTP/1.1 200 OK]
+2024-08-26T18:30:18.759+09:00 DEBUG 4486 --- [elastic] [http-nio-12101-exec-3] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T18:31:21.636+09:00 DEBUG 4486 --- [elastic] [http-nio-12101-exec-6] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T19:08:47.863+09:00 DEBUG 4486 --- [elastic] [http-nio-12101-exec-8] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T19:08:51.621+09:00 DEBUG 4486 --- [elastic] [http-nio-12101-exec-10] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
+2024-08-26T19:08:58.178+09:00 DEBUG 4486 --- [elastic] [http-nio-12101-exec-1] org.elasticsearch.client.RestClient      : request [POST http://localhost:9200/msds/_search?typed_keys=true&search_type=query_then_fetch] returned [HTTP/1.1 200 OK]
