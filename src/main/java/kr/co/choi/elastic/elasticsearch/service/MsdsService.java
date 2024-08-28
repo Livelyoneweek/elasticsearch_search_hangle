@@ -64,18 +64,6 @@ public class MsdsService {
                 .collect(Collectors.toList());
     }
 
-    public Optional<Msds> findById(String id) {
-        return msdsRepository.findById(id);
-    }
-
-    public Iterable<Msds> findAll() {
-        return msdsRepository.findAll();
-    }
-
-    public void deleteById(String id) {
-        msdsRepository.deleteById(id);
-    }
-
     /**
      * 검색 메소드
      */
@@ -140,5 +128,17 @@ public class MsdsService {
             log.error(e.getMessage());
             return msdsList;
         }
+    }
+
+    public Optional<Msds> findById(String id) {
+        return msdsRepository.findById(id);
+    }
+
+    public Iterable<Msds> findAll() {
+        return msdsRepository.findAll();
+    }
+
+    public void deleteById(String id) {
+        msdsRepository.deleteById(id);
     }
 }

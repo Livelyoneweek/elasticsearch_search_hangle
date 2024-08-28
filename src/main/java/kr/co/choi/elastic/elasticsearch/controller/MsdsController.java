@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,18 +20,9 @@ public class MsdsController {
 
     private final MsdsService msdsService;
 
-    @PostMapping
-    public Msds create(@RequestBody Msds msds) {
-        log.info("### MsdsController.create");
-        return msdsService.save(msds);
-    }
-
-    @PostMapping("/list")
-    public List<Msds> createBulk(@RequestBody List<Msds> msdsList) {
-        log.info("### MsdsController.createBulk");
-        return msdsService.saveAll(msdsList);
-    }
-
+    /**
+     * csv 파일로 업로드
+     */
     @PostMapping("/upload")
     public ResponseEntity<List<Msds>> uploadCsv(@RequestParam("file") MultipartFile file) {
         log.info("### MsdsController.uploadCsv");
@@ -44,18 +34,9 @@ public class MsdsController {
         return ResponseEntity.ok(savedMsds);
     }
 
-    @GetMapping("/{id}")
-    public Optional<Msds> getById(@PathVariable String id) {
-        log.info("### MsdsController.getById");
-        return msdsService.findById(id);
-    }
-
-    @GetMapping
-    public Iterable<Msds> getAll() {
-        log.info("### MsdsController.getAll");
-        return msdsService.findAll();
-    }
-
+    /**
+     *  검색 api
+     */
     @GetMapping("/search")
     public List<Msds> searchByName(@RequestParam String name) {
         long startTime = System.currentTimeMillis(); // 시작 시간 기록
@@ -68,6 +49,45 @@ public class MsdsController {
 
     }
 
+    /**
+     * 단일 업로드
+     */
+    @PostMapping
+    public Msds create(@RequestBody Msds msds) {
+        log.info("### MsdsController.create");
+        return msdsService.save(msds);
+    }
+
+    /**
+     * 리스트 업로드
+     */
+    @PostMapping("/list")
+    public List<Msds> createBulk(@RequestBody List<Msds> msdsList) {
+        log.info("### MsdsController.createBulk");
+        return msdsService.saveAll(msdsList);
+    }
+
+    /**
+     * pk 로 조회
+     */
+    @GetMapping("/{id}")
+    public Optional<Msds> getById(@PathVariable String id) {
+        log.info("### MsdsController.getById");
+        return msdsService.findById(id);
+    }
+
+    /**
+     * 전체 조회
+     */
+    @GetMapping
+    public Iterable<Msds> getAll() {
+        log.info("### MsdsController.getAll");
+        return msdsService.findAll();
+    }
+
+    /**
+     * pk로 삭제
+     */
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable String id) {
         msdsService.deleteById(id);
